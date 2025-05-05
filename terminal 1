@@ -1,0 +1,8 @@
+pvg@pvg-HP-ProDesk-400-G4-SFF:~/Downloads/Assi_1$ javac CircleInterface.java CircleImplementation.java Server.java Client.java
+pvg@pvg-HP-ProDesk-400-G4-SFF:~/Downloads/Assi_1$ rmiregistry 2000
+pvg@pvg-HP-ProDesk-400-G4-SFF:~/Downloads/Assi_1$ sudo lsof -i :2000
+[sudo] password for pvg: 
+pvg@pvg-HP-ProDesk-400-G4-SFF:~/Downloads/Assi_1$ sudo kill -9 12345
+kill: (12345): No such process
+pvg@pvg-HP-ProDesk-400-G4-SFF:~/Downloads/Assi_1$ 
+

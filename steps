@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Install Java 8
+sudo apt update
+sudo apt install -y openjdk-8-jdk
+
+# Set JAVA_HOME
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> ~/.bashrc
+echo "export PATH=$JAVA_HOME/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+
+# Download and install MPJ Express
+wget https://sourceforge.net/projects/mpjexpress/files/latest/download -O mpjexpress.tar.gz
+tar -xzf mpjexpress.tar.gz
+sudo mv mpj-v* /opt/mpj
+
+# Set MPJ_HOME
+echo "export MPJ_HOME=/opt/mpj" >> ~/.bashrc
+source ~/.bashrc
+
+# Navigate to project directory (adjust path as needed)
+cd ~/Documents/ass3
+
+# Compile the Java file
+javac -cp $MPJ_HOME/lib/mpj.jar:. DistributedSum.java
+
+# Run the program
+mpjrun.sh -np 2 -dev multicore DistributedSum
+
